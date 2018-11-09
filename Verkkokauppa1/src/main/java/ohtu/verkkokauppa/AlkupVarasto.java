@@ -3,22 +3,12 @@ package ohtu.verkkokauppa;
 import java.util.*;
 
 public class AlkupVarasto implements Varasto {
-
-    private static AlkupVarasto instanssi;
-
-    public static AlkupVarasto getInstance() {
-        if (instanssi == null) {
-            instanssi = new AlkupVarasto();
-        }
-
-        return instanssi;
-    }
-    
+   
     private Kirjanpito kirjanpito;
     private HashMap<Tuote, Integer> saldot;  
     
-    private AlkupVarasto() {
-        kirjanpito = Kirjanpito.getInstance();
+    public AlkupVarasto(Kirjanpito kirjanpito) {
+        this.kirjanpito = kirjanpito;
         saldot = new HashMap<Tuote, Integer>();
         alustaTuotteet();
     }
